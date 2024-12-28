@@ -8,11 +8,11 @@ import "react-alice-carousel/lib/alice-carousel.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="crypto-tracker">
       <div className="classes">
         <Header />
         <Routes>
-          <Route path="/crypto-tracker" element={<HomePage></HomePage>} />
+          <Route path="/" element={<HomePage></HomePage>} />
           <Route path="/coinpage/:id" element={<CoinPage></CoinPage>} />
         </Routes>
       </div>
