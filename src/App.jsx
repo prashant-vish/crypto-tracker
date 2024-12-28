@@ -12,7 +12,7 @@ function App() {
       <div className="classes">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage></HomePage>} />
+          <Route path="/crypto-tracker" element={<HomePage></HomePage>} />
           <Route path="/coinpage/:id" element={<CoinPage></CoinPage>} />
         </Routes>
       </div>
