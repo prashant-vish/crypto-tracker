@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import CoinPage from "./Pages/CoinPage";
 import "react-alice-carousel/lib/alice-carousel.css";
+import Alerts from "./Components/Alerts";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/coinpage/:id" element={<CoinPage></CoinPage>} />
         </Routes>
       </div>
+      <Alerts />
     </BrowserRouter>
   );
 }

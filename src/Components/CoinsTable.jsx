@@ -22,21 +22,11 @@ import { useNavigate } from "react-router-dom";
 import { numberWithCommas } from "./Banner/Coursel";
 
 const CoinsTable = () => {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState();
   const [page, setPage] = useState(1);
   const tableHead = ["Coin", "Price", "24h Change", "MarketCap"];
   const navigate = useNavigate();
-  const { currency, symbol } = CryptoState();
-  console.log(currency);
-
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-    setCoins(data);
-    setLoading(false);
-  };
+  const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
 
   const handleSearch = () => {
     if (!search) {
@@ -48,7 +38,7 @@ const CoinsTable = () => {
         coin.symbol.toLowerCase().includes(search)
     );
   };
-  console.log(coins);
+  // console.log(coins);
 
   useEffect(() => {
     fetchCoins();
@@ -115,6 +105,7 @@ const CoinsTable = () => {
 
                       return (
                         <TableRow
+                          key={row.id}
                           onClick={() => {
                             navigate(`/coinpage/${row.id}`);
                             key: {
